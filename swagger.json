@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sale Management API",
+    "version": "1.0.0",
+    "description": "API documentation for Sale Management System"
+  },
+  "servers": [
+    { "url": "http://localhost:4000" }
+  ],
+  "paths": {
+    "/api/client-types": {
+      "get": { "summary": "Get all client types", "responses": { "200": { "description": "List of client types" } } },
+      "post": {
+        "summary": "Create a client type",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ClientType" } } } },
+        "responses": { "200": { "description": "Client type created" } }
+      }
+    },
+    "/api/client-types/{id}": {
+      "get": { "summary": "Get client type by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Client type data" } } },
+      "put": { "summary": "Update client type", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ClientType" } } } }, "responses": { "200": { "description": "Client type updated" } } },
+      "delete": { "summary": "Delete client type", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Client type deleted" } } }
+    },
+
+    "/api/clients": {
+      "get": { "summary": "Get all clients", "responses": { "200": { "description": "List of clients" } } },
+      "post": { "summary": "Create a client", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Client" } } } }, "responses": { "200": { "description": "Client created" } } }
+    },
+    "/api/clients/{id}": {
+      "get": { "summary": "Get client by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Client data" } } },
+      "put": { "summary": "Update client", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Client" } } } }, "responses": { "200": { "description": "Client updated" } } },
+      "delete": { "summary": "Delete client", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Client deleted" } } }
+    },
+
+    "/api/jobs": {
+      "get": { "summary": "Get all jobs", "responses": { "200": { "description": "List of jobs" } } },
+      "post": { "summary": "Create a job", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Job" } } } }, "responses": { "200": { "description": "Job created" } } }
+    },
+    "/api/jobs/{id}": {
+      "get": { "summary": "Get job by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Job data" } } },
+      "put": { "summary": "Update job", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Job" } } } }, "responses": { "200": { "description": "Job updated" } } },
+      "delete": { "summary": "Delete job", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Job deleted" } } }
+    },
+
+    "/api/employees": {
+      "get": { "summary": "Get all employees", "responses": { "200": { "description": "List of employees" } } },
+      "post": { "summary": "Create an employee", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Employee" } } } }, "responses": { "200": { "description": "Employee created" } } }
+    },
+    "/api/employees/{id}": {
+      "get": { "summary": "Get employee by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Employee data" } } },
+      "put": { "summary": "Update employee", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Employee" } } } }, "responses": { "200": { "description": "Employee updated" } } },
+      "delete": { "summary": "Delete employee", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Employee deleted" } } }
+    },
+
+    "/api/product-types": {
+      "get": { "summary": "Get all product types", "responses": { "200": { "description": "List of product types" } } },
+      "post": { "summary": "Create a product type", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProductType" } } } }, "responses": { "200": { "description": "Product type created" } } }
+    },
+    "/api/product-types/{id}": {
+      "get": { "summary": "Get product type by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Product type data" } } },
+      "put": { "summary": "Update product type", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProductType" } } } }, "responses": { "200": { "description": "Product type updated" } } },
+      "delete": { "summary": "Delete product type", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Product type deleted" } } }
+    },
+
+    "/api/products": {
+      "get": { "summary": "Get all products", "responses": { "200": { "description": "List of products" } } },
+      "post": { "summary": "Create a product", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Product" } } } }, "responses": { "200": { "description": "Product created" } } }
+    },
+    "/api/products/{id}": {
+      "get": { "summary": "Get product by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Product data" } } },
+      "put": { "summary": "Update product", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Product" } } } }, "responses": { "200": { "description": "Product updated" } } },
+      "delete": { "summary": "Delete product", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Product deleted" } } }
+    },
+
+    "/api/invoices": {
+      "get": { "summary": "Get all invoices", "responses": { "200": { "description": "List of invoices" } } },
+      "post": { "summary": "Create an invoice", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Invoice" } } } }, "responses": { "200": { "description": "Invoice created" } } }
+    },
+    "/api/invoices/{id}": {
+      "get": { "summary": "Get invoice by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Invoice data" } } },
+      "put": { "summary": "Update invoice", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Invoice" } } } }, "responses": { "200": { "description": "Invoice updated" } } },
+      "delete": { "summary": "Delete invoice", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Invoice deleted" } } }
+    },
+
+    "/api/invoice-details": {
+      "get": { "summary": "Get all invoice details", "responses": { "200": { "description": "List of invoice details" } } },
+      "post": { "summary": "Create invoice detail", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvoiceDetail" } } } }, "responses": { "200": { "description": "Invoice detail created" } } }
+    },
+    "/api/invoice-details/{invoiceNo}/{productNo}": {
+      "put": { "summary": "Update invoice detail", "parameters": [
+        { "name": "invoiceNo", "in": "path", "required": true, "schema": { "type": "integer" } },
+        { "name": "productNo", "in": "path", "required": true, "schema": { "type": "string" } }
+      ], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvoiceDetail" } } } }, "responses": { "200": { "description": "Invoice detail updated" } } },
+      "delete": { "summary": "Delete invoice detail", "parameters": [
+        { "name": "invoiceNo", "in": "path", "required": true, "schema": { "type": "integer" } },
+        { "name": "productNo", "in": "path", "required": true, "schema": { "type": "string" } }
+      ], "responses": { "200": { "description": "Invoice detail deleted" } } }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ClientType": { "type": "object", "properties": { "CLIENT_TYPE": { "type": "string" }, "TYPE_NAME": { "type": "string" }, "DISCOUNT_RATE": { "type": "number" }, "REMARKS": { "type": "string" } }, "required": ["CLIENT_TYPE", "TYPE_NAME"] },
+      "Client": { "type": "object", "properties": { "ClientName": { "type": "string" }, "Address": { "type": "string" }, "City": { "type": "string" }, "Phone": { "type": "string" }, "CLIENT_TYPE": { "type": "string" }, "Discount": { "type": "number" } }, "required": ["ClientName", "CLIENT_TYPE"] },
+      "Job": { "type": "object", "properties": { "Job_Title": { "type": "string" }, "Department": { "type": "string" }, "Min_Salary": { "type": "number" }, "Max_Salary": { "type": "number" } }, "required": ["Job_Title", "Department"] },
+      "Employee": { "type": "object", "properties": { "EmployeeName": { "type": "string" }, "Gender": { "type": "string" }, "BirthDate": { "type": "string" }, "Job_ID": { "type": "integer" }, "Address": { "type": "string" }, "Phone": { "type": "string" }, "Salary": { "type": "number" }, "Remarks": { "type": "string" }, "Photo": { "type": "string", "format": "binary" } }, "required": ["EmployeeName"] },
+      "ProductType": { "type": "object", "properties": { "ProductType_ID": { "type": "string" }, "ProductType_Name": { "type": "string" }, "Remarks": { "type": "string" } }, "required": ["ProductType_ID", "ProductType_Name"] },
+      "Product": { "type": "object", "properties": { "Product_no": { "type": "string" }, "ProductName": { "type": "string" }, "ProductType": { "type": "string" }, "Profit_percent": { "type": "number" }, "Unit_measure": { "type": "string" }, "Reorder_level": { "type": "number" }, "Cost_Price": { "type": "number" }, "Sell_price": { "type": "number" }, "QTY_ON_HAND": { "type": "number" }, "Photo": { "type": "string", "format": "binary" } }, "required": ["Product_no", "ProductName"] },
+      "Invoice": { "type": "object", "properties": { "Client_no": { "type": "integer" }, "EmployeeID": { "type": "integer" }, "Invoice_status": { "type": "string" }, "InvoiceMemo": { "type": "string" }, "Invoice_date": { "type": "string", "format": "date" } }, "required": ["Client_no", "EmployeeID"] },
+      "InvoiceDetail": { "type": "object", "properties": { "InvoiceNo": { "type": "integer" }, "Product_no": { "type": "string" }, "Qty": { "type": "number" }, "Price": { "type": "number" } }, "required": ["InvoiceNo", "Product_no", "Qty", "Price"] }
+    }
+  }
+}
