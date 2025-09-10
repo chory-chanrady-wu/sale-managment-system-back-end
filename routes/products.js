@@ -47,10 +47,10 @@ router.get('/', async (req, res) => {
 
     await conn.close();
     res.json(products);
-  } catch (err) {
+    } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });
-  }
+    }
 });
 
 // GET product by Product_no
