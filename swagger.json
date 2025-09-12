@@ -9,6 +9,40 @@
     { "url": "http://localhost:4000" }
   ],
   "paths": {
+    "/api/reports/templates": {
+      "get": {
+        "summary": "Get all report templates",
+        "tags": ["Reports"],
+        "responses": {
+          "200": { "description": "List of report templates" }
+        }
+      },
+      "post": {
+        "summary": "Create a report template",
+        "tags": ["Reports"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ReportTemplate" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Template created" }
+        }
+      }
+    },
+    "/api/reports/templates/{id}": {
+      "delete": {
+        "summary": "Delete a report template",
+        "tags": ["Reports"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "Template deleted" } }
+      }
+    },
     "/api/client-types": {
       "get": { "summary": "Get all client types", "responses": { "200": { "description": "List of client types" } } },
       "post": {
@@ -107,7 +141,8 @@
       "ProductType": { "type": "object", "properties": { "ProductType_ID": { "type": "string" }, "ProductType_Name": { "type": "string" }, "Remarks": { "type": "string" } }, "required": ["ProductType_ID", "ProductType_Name"] },
       "Product": { "type": "object", "properties": { "Product_no": { "type": "string" }, "ProductName": { "type": "string" }, "ProductType": { "type": "string" }, "Profit_percent": { "type": "number" }, "Unit_measure": { "type": "string" }, "Reorder_level": { "type": "number" }, "Cost_Price": { "type": "number" }, "Sell_price": { "type": "number" }, "QTY_ON_HAND": { "type": "number" }, "Photo": { "type": "string", "format": "binary" } }, "required": ["Product_no", "ProductName"] },
       "Invoice": { "type": "object", "properties": { "Client_no": { "type": "integer" }, "EmployeeID": { "type": "integer" }, "Invoice_status": { "type": "string" }, "InvoiceMemo": { "type": "string" }, "Invoice_date": { "type": "string", "format": "date" } }, "required": ["Client_no", "EmployeeID"] },
-      "InvoiceDetail": { "type": "object", "properties": { "InvoiceNo": { "type": "integer" }, "Product_no": { "type": "string" }, "Qty": { "type": "number" }, "Price": { "type": "number" } }, "required": ["InvoiceNo", "Product_no", "Qty", "Price"] }
+      "InvoiceDetail": { "type": "object", "properties": { "InvoiceNo": { "type": "integer" }, "Product_no": { "type": "string" }, "Qty": { "type": "number" }, "Price": { "type": "number" } }, "required": ["InvoiceNo", "Product_no", "Qty", "Price"] },
+      "ReportTemplate": {"type": "object", "properties": {"TEMPLATENAME": { "type": "string" },"SQLQUERY": { "type": "string" }},"required": ["TEMPLATENAME", "SQLQUERY"]}
     }
   }
 }

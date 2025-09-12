@@ -15,10 +15,12 @@
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
+    "exceljs": "^4.4.0",
     "express": "^5.1.0",
     "flatted": "^3.3.3",
     "multer": "^2.0.2",
     "oracledb": "^6.9.0",
+    "pdfkit": "^0.17.2",
     "react-helmet": "^6.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"

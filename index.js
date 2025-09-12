@@ -38,7 +38,7 @@ app.use('/api/employees', require('./routes/employees'));
 app.use('/api/product-types', require('./routes/productTypes'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/invoices', require('./routes/invoices'));
-//app.use('/api/reports', require('./routes/reports'));
+app.use('/api/reports', require('./routes/reports'));
 app.use('/api/invoice-details', require('./routes/invoiceDetails'));
 
 app.listen(port, () => {
