@@ -18,6 +18,33 @@ async function blobToBase64(blob) {
   return Buffer.concat(chunks).toString('base64');
 }
 
+router.get("/by-type", async (req, res) => {
+  let connection;
+  try {
+    connection = await oracledb.getConnection({
+      user: "ADMIN",
+      password: "YOUR_PASSWORD",
+      connectString: "YOUR_DB"
+    });
+
+    const result = await connection.execute(
+      `SELECT PRODUCTTYPE_NAME, NUMBEROFPRODUCT FROM PRODUCTBYTYPE`
+    );
+
+    const data = result.rows.map(row => ({
+      name: row[0] || "Unknown",
+      value: Number(row[1] || 0)
+    }));
+
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching product types");
+  } finally {
+    if (connection) await connection.close();
+  }
+});
+
 // GET all products with ProductTypeName lookup
 router.get('/', async (req, res) => {
   try {
